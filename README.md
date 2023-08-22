@@ -1,7 +1,7 @@
 FPT Secathon 2023
 ====
 <table align = "center">
-<h2 align=center>MỤC LỤC CHALLANGE (Still updating...)</h2>
+<h2 align=center>MỤC LỤC CHALLANGE</h2>
   <tr>
   <td>
 
