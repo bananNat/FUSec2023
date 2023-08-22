@@ -199,10 +199,16 @@ print(decrypt_message(long_to_bytes(root),cipher_text))
 ```
 Easy to exploit!
 ```
-Đề bài cho chúng ta một trang web với 1 form POST một trường template đến endpoint /render. Có vẻ như server sẽ render đoạn template mà ta đã truyền vào. Ta lập tức có thể đoán ở đây sẽ có lổ hổng Server-side Template Injection. Sau một số bước phân tích thì ta biết rằng server chạy PHP với Twig template engine. Sau một số bước research thì ta tìm được payload để RCE như sau:
+Đề bài cho chúng ta một trang web với 1 form POST một trường template đến endpoint /render. Có vẻ như server sẽ render đoạn template mà ta đã truyền vào. Ta lập tức có thể đoán ở đây sẽ có lổ hổng Server-side Template Injection.
+Sau một số bước phân tích thì ta biết rằng server chạy PHP với Twig template engine.
+<p align ="center">
+  <img src="https://github.com/bananNat/FUSec2023/assets/50787038/b8ea4dc6-6808-4d5d-b16b-2fe469cca4ad">
+</p>
+Và sau khi tiếp tục research tìm được payload để RCE như sau:
 ```
 {{['id',1]|sort('system')|join}}
 ```
+#### Flag: FUSec{Nic3_B1g_n1GG4_w1ll_Pr0t3ct_y0U}
 
 ## [WEB] EHC social network 1
 ```
