@@ -92,6 +92,8 @@ Mặt khác teamate của mình lúc research xem cách hoạt động của pow
 
 [Cobalt Strike Shellcode](https://ethical.blue/textz/n/29)
 
+[🤡🤡🤡](https://isc.sans.edu/diary/Fileless+Malicious+PowerShell+Sample/23081)
+
 Xem strings của cái DLL này thì thấy có 2 chuỗi `.encrypt_me` và `.en1gmalware` cũng chính là 2 đuôi file chồng lên nhau của file flag. Mình liền nhảy tới hàm sử dụng 2 chuỗi này và đặt 2 cái break point ngay đó.
 
 Static hàm có `.encrypt_me` thì sẽ thấy nó sẽ đang cố tìm file có đuôi trên.
