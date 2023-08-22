@@ -196,13 +196,29 @@ print(decrypt_message(long_to_bytes(root),cipher_text))
 
 
 ## [WEB] Baby Injection
-<p align ="center">
-  <img src="https://github.com/bananNat/FUSec2023/assets/100250271/5cb20490-dd78-401b-b7fc-3720c717f7bd">
-</p>
-
+```
+Easy to exploit!
+```
+Đề bài cho chúng ta một trang web với 1 form POST một trường template đến endpoint /render. Có vẻ như server sẽ render đoạn template mà ta đã truyền vào. Ta lập tức có thể đoán ở đây sẽ có lổ hổng Server-side Template Injection. Sau một số bước phân tích thì ta biết rằng server chạy PHP với Twig template engine. Sau một số bước research thì ta tìm được payload để RCE như sau:
+```
+{{['id',1]|sort('system')|join}}
+```
 
 ## [WEB] EHC social network 1
+```
+Bên trong mạng xã hội EHC có 1 tính năng ẩn mà chỉ những thằng có Prime mới unlock được, còn mấy thằng Non-Prime thì ra đường cúi cúi cái mặt xuống
+```
+Source: [tại đây](https://drive.google.com/file/d/17SNng7BV_zfe3PTkcwwp60wSeMorwOBR/view?usp=sharing)
+Đề bài cho ta một trang web tweet. Sau khi phân tích source code, ta có thể thấy rằng flag sẽ nằm ở tweet đầu tiên với status = 0. Ở đây chúng ta cần hash của status 0, hash của status sẽ được tính toàn bằng hàm makeHash với thuật toán **"ripemd160WithRSA"** với salt là
+```
+this.salt = `salt-${crypto.randomBytes(10).toString}`;
+```
+Ở đây hàm toString chưa hề được gọi, và nếu in thử salt này ra ta sẽ nhận được nội dung chính là ```
+salt-nội dung của hàm toString```
+Ta có thể thấy salt này sẽ luôn cố định, tuy nhiên thuật toán dùng ở đây không phải là một thuật toán tiêu chuẩn của nodejs - điều đó có nghĩa là đầu ra của hàm makeHash sẽ khác nhau trên các kiến trúc khác nhau. Cuối cùng ta chỉ cần build lại server trên docker là có thể lấy chính xác hash cho status 0.
 
 <p align ="center">
-  <img src="https://github.com/bananNat/FUSec2023/assets/100250271/27a9f045-969a-49f9-a968-ac247af9dffb">
+  <img src="https://github.com/bananNat/FUSec2023/assets/50787038/e7352992-1eda-4a6f-a27e-da87834cf50f">
 </p>
+
+#### Flag: FUSec{tkjs_js_just_pk4s3_0n3_0f_jd0r_dud3}
