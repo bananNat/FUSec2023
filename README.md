@@ -217,6 +217,7 @@ Và sau khi tiếp tục research tìm được payload để RCE như sau:
 Bên trong mạng xã hội EHC có 1 tính năng ẩn mà chỉ những thằng có Prime mới unlock được, còn mấy thằng Non-Prime thì ra đường cúi cúi cái mặt xuống
 ```
 Source: [tại đây](https://drive.google.com/file/d/17SNng7BV_zfe3PTkcwwp60wSeMorwOBR/view?usp=sharing)
+
 Đề bài cho ta một trang web tweet. Sau khi phân tích source code, ta có thể thấy rằng flag sẽ nằm ở tweet đầu tiên với status = 0. Ở đây chúng ta cần hash của status 0, hash của status sẽ được tính toàn bằng hàm makeHash với thuật toán **"ripemd160WithRSA"** với salt là
 ```
 this.salt = `salt-${crypto.randomBytes(10).toString}`;
